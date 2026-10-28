@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Java Applet Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark">J</div>
+    <div>
+      <h1>Java Applet Lab</h1>
+      <p>Legacy Applet playground · learning prototype</p>
+    </div>
+    <span class="status"><i></i> Ready</span>
+  </header>
+
+  <main class="page">
+    <section class="notice">
+      <strong>Legacy Java note:</strong> Applets do not run in modern browsers. This playground sends code to a Java 8 backend that compiles it and renders the Applet into an image.
+    </section>
+
+    <section class="toolbar">
+      <label for="apiBase">Backend API</label>
+      <input id="apiBase" type="url" value="http://localhost:8080" spellcheck="false">
+      <button id="runBtn" class="primary">▶ Run Applet</button>
+      <button id="resetBtn" class="secondary">Reset</button>
+    </section>
+
+    <div class="workspace">
+      <section class="panel editor-panel">
+        <div class="panel-heading">
+          <div><span class="dot blue"></span><h2>Applet source</h2></div>
+          <span class="hint">Java 8 syntax</span>
+        </div>
+        <textarea id="code" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Java Applet source"></textarea>
+        <div class="editor-footer">
+          <span id="lineCount">1 line</span>
+          <span>Class name must be <code>AppletProgram</code></span>
+        </div>
+      </section>
+
+      <section class="panel output-panel">
+        <div class="panel-heading">
+          <div><span class="dot green"></span><h2>Graphics output</h2></div>
+          <span class="hint" id="outputStatus">Waiting to run</span>
+        </div>
+        <div class="canvas-wrap">
+          <img id="outputImage" alt="Applet graphics output" hidden>
+          <div id="emptyState">
+            <div class="empty-icon">▧</div>
+            <strong>Your Applet output will appear here</strong>
+            <p>Connect the backend, then press Run Applet.</p>
+          </div>
+        </div>
+        <div class="event-tools">
+          <span>Event testing</span>
+          <button class="event-btn" data-event="mouseClicked">Send mouse click</button>
+          <button class="event-btn" data-event="keyPressed">Send key (A)</button>
+        </div>
+        <div class="console">
+          <div class="console-title">Console / compiler messages <button id="clearConsole" type="button">Clear</button></div>
+          <pre id="consoleOutput">Ready. Start the backend and press Run Applet.</pre>
+        </div>
+      </section>
+    </div>
+    <footer>Java Applet Lab · Educational prototype · Never run untrusted code on an unsecured public server.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
